@@ -37,10 +37,8 @@
     "vitest": "^0.34.5"
   },
   "dependencies": {
-    "@mdi/font": "^7.2.96",
     "@nuxt/content": "^2.8.2",
     "sass": "^1.68.0",
-    "vite-plugin-eslint": "^1.8.1",
-    "vuetify": "^3.3.19"
+    "vite-plugin-eslint": "^1.8.1"
   }
 }
