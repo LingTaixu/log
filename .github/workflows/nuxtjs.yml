@@ -69,7 +69,7 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: 通过nuxt打包成静态文件
-        run: yarn run generate
+        run: yarn run g
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:

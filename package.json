@@ -5,7 +5,7 @@
   "scripts": {
     "build": "nuxt build",
     "start": "nuxt dev --open",
-    "generate": "nuxt generate",
+    "g": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint:js": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
