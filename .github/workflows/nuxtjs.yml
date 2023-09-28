@@ -39,25 +39,26 @@ jobs:
             echo "command=install" >> $GITHUB_OUTPUT
             exit 0
           else
-            echo "只能使用yarn来安装"
+            echo "没有找到yarn.lock文件"
             exit 1
           fi
-      - name: Setup Node
+      - name: 安装node
         uses: actions/setup-node@v3
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: 清理yarn的缓存
         run: yarn cache clean
-      - name: Setup Pages
+      - name: 更新page
         uses: actions/configure-pages@v3
         with:
+          # 自动注入
           # Automatically inject router.base in your Nuxt configuration file and set
           # target to static (https://nuxtjs.org/docs/configuration-glossary/configuration-target/).
           #
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: nuxt
-      - name: Restore cache
+      - name: 复位缓存
         uses: actions/cache@v3
         with:
           path: |
@@ -66,11 +67,11 @@ jobs:
           key: ${{ runner.os }}-nuxt-build-${{ hashFiles('dist') }}
           restore-keys: |
             ${{ runner.os }}-nuxt-build-
-      - name: Install dependencies
+      - name: 安装依赖项
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: 通过nuxt打包成静态文件
         run: yarn run g
-      - name: Upload artifact
+      - name: 上传dist
         uses: actions/upload-pages-artifact@v2
         with:
           path: ./dist
