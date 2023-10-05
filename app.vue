@@ -1,6 +1,5 @@
 <template>
   <NuxtLayout>
-    <template #header> Some header template content. </template>
     <NuxtPage />
     <!-- <NuxtWelcome /> -->
   </NuxtLayout>
@@ -10,7 +9,6 @@
 useHead({
   title: useAppConfig().title,
 });
-useDarkMode();
 </script>
 
 <style scoped></style>
